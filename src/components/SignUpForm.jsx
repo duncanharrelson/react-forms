@@ -19,22 +19,26 @@ const SignUpForm = ({setToken}) => {
             })
             const result = await response.json();
             setToken(result.token)            
-        } catch (err) {
+        } catch (error) {
             setError(error.message);
         }
     }
 
     return (
         <>        
-            <h2>Sign Up</h2>
+            <h2 className="sign-up">Sign Up</h2>
             { error && <p>{error}</p> }
             <form onSubmit={handleSubmit}>
                 <label>
-                    Username: <input value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    Username: <input value={username} onChange={(e) => setUsername(e.target.value)} minLength={8} required/>
                 </label>
+                <br />
+                <br />
                 <label>
-                    Password: <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    Password: <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} minLength={8} required/>
                 </label>
+                <br />
+                <br />
                 <button type="submit">Submit</button>
             </form>        
         </>
