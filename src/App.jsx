@@ -1,13 +1,15 @@
 import './App.css'
+import SignUpForm from './components/SignUpForm'
+import Authenticate from './components/Authenticate'
 
-function App() {
-  
+const App = () => { 
 
   return (
     <>
-      
+      <SignUpForm />
+      <Authenticate />
     </>
   )
 }
 
-export default App
+export default App;
